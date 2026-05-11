@@ -7,3 +7,25 @@ sources:
     schema: thelook_ecommerce
     tables:
     - name: orders  
+
+models:
+  - name: stg_taxi_trips
+    columns:
+      - name: unique_key
+        tests:
+          - not_null
+          - unique
+      - name: trip_start_timestamp
+        tests:
+          - not_null
+  - name: trips_summary
+    columns:
+      - name: company
+        tests: 
+          - not_null
+      - name: trip_month
+        tests:
+          - not_null
+      - name: total_trips
+        tests:
+          - not_null
