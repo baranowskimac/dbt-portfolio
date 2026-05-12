@@ -1,16 +1,27 @@
-Welcome to your new dbt project!
+# dbt Portfolio — Chicago Taxi Trips
 
-### Using the starter project
+Analytics Engineering portfolio project built with dbt + BigQuery.
 
-Try running the following commands:
-- dbt run
-- dbt test
+## Stack
+- **dbt-core** 1.8.9
+- **BigQuery** (GCP public dataset: Chicago Taxi Trips)
+- **Python** 3.11 (conda environment)
 
+## Models
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
-# dbt-portfolio
+| Model | Layer | Description |
+|---|---|---|
+| `stg_taxi_trips` | Staging | Cleans and standardizes raw Chicago Taxi data |
+| `trips_summary` | Mart | Monthly trip aggregations by service provider |
+
+## Lineage Graph (DAG)
+
+![DAG](images/dag.png)
+
+## How to run
+
+```bash
+dbt run
+dbt test
+dbt docs generate && dbt docs serve
+```

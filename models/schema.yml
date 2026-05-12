@@ -10,22 +10,29 @@ sources:
 
 models:
   - name: stg_taxi_trips
+    description: "Staging model. Cleans and standardizes raw Chicago Taxi Trips data from BigQuery public dataset"
     columns:
       - name: unique_key
+        description: "Unique identifier for each taxi trip"
         tests:
           - not_null
           - unique
       - name: trip_start_timestamp
+        description: "Timestamp when the trip started"
         tests:
           - not_null
   - name: trips_summary
+    description: "Mart model. Monthly aggregation of taxi trips grouped by service provider"
     columns:
       - name: company
+        description: "Service Provider"
         tests: 
           - not_null
       - name: trip_month
+        description: "Month of the trip, truncated to first day of month (DATE type)"
         tests:
           - not_null
       - name: total_trips
+        description: "Monthly Trips per Provider"
         tests:
           - not_null
