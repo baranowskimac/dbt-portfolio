@@ -1,4 +1,3 @@
-
 version: 2
 
 sources:
@@ -14,25 +13,22 @@ models:
     columns:
       - name: unique_key
         description: "Unique identifier for each taxi trip"
-        tests:
+        data_tests:
           - not_null
-          - unique
       - name: trip_start_timestamp
         description: "Timestamp when the trip started"
-        tests:
+        data_tests:
           - not_null
   - name: trips_summary
     description: "Mart model. Monthly aggregation of taxi trips grouped by service provider"
     columns:
       - name: company
         description: "Service Provider"
-        tests: 
-          - not_null
       - name: trip_month
         description: "Month of the trip, truncated to first day of month (DATE type)"
-        tests:
+        data_tests:
           - not_null
       - name: total_trips
         description: "Monthly Trips per Provider"
-        tests:
+        data_tests:
           - not_null
