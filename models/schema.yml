@@ -2,11 +2,11 @@
 version: 2
 
 sources:
-  - name: thelook
+  - name: chicago_taxi
     database: bigquery-public-data
-    schema: thelook_ecommerce
+    schema: chicago_taxi_trips
     tables:
-    - name: orders  
+    - name: taxi_trips  
 
 models:
   - name: stg_taxi_trips
